@@ -1,0 +1,29 @@
+name: 'DNS Bot'
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '*/15 * * * *'
+
+jobs:
+  sync-dns:
+    name: Update Aliyun DNS Records
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt --quiet
+
+    - name: Update DNS Records
+      env:
+        SECRETID: ${{ secrets.SECRETID }}
+        SECRETKEY: ${{ secrets.SECRETKEY }}
+        DOMAINS: ${{ secrets.DOMAINS }}
+      run: python cfip.py ALL V4
+
+      

@@ -1,0 +1,5 @@
+alibabacloud_alidns20150109==3.5.8
+alibabacloud_credentials
+aliyun-python-sdk-alidns==2.6.19
+aliyun-python-sdk-core==2.13.29
+requests==2.28.1
