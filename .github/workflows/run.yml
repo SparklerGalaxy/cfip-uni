@@ -21,9 +21,13 @@ jobs:
 
     - name: Update DNS Records
       env:
-        SECRETID: ${{ secrets.SECRETID }}
-        SECRETKEY: ${{ secrets.SECRETKEY }}
-        DOMAINS: ${{ secrets.DOMAINS }}
+        CN_SECRETID: ${{ secrets.CN_SECRETID }}
+        CN_SECRETKEY: ${{ secrets.CN_SECRETKEY }}
+        CN_DOMAINS: ${{ secrets.CN_DOMAINS }}
+        INTL_SECRETID: ${{ secrets.INTL_SECRETID }}
+        INTL_SECRETKEY: ${{ secrets.INTL_SECRETKEY }}
+        INTL_DOMAINS: ${{ secrets.INTL_DOMAINS }}
+        IP_API: ${{ secrets.IP_API }}
       run: python cfip.py ALL V4
 
       
